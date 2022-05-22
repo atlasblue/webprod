@@ -2,8 +2,10 @@ sudo yum update -y
 sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
-systemctl stop firewalld
-systemctl disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+sudo setenforce 0
+sed -i s\/^SELINUX=.*$\/SELINUX=disabled\/ \/etc\/selinux\/config
 sudo yum install git -y
-sudo git clone https://github.com/atlasblue/webprod.git 
-sudo mv -f webprod/* /usr/share/nginx/html
+git clone https://github.com/atlasblue/webprod.git 
+mv -f webprod/* /usr/share/nginx/html
