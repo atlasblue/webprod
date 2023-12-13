@@ -14,7 +14,7 @@ domain="localhost"
 timezone="America/Phoenix"
 
 ##########################
-
+hostnamectl set-hostname vm-prod
 useradd $user
 
 # Repos
